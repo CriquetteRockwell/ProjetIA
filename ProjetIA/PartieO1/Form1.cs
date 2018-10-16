@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace PartieO1
 {
-    public partial class Form1 : Form
+    public partial class qcm : Form
     {
-        public Form1()
+        public qcm()
         {
             InitializeComponent();
+        }
+
+        private void buttonStart_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
