@@ -30,12 +30,21 @@
         {
             System.Windows.Forms.Button buttonStart;
             this.BigTitle = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.questionLabel = new System.Windows.Forms.Label();
+            this.rbD = new System.Windows.Forms.RadioButton();
+            this.rbC = new System.Windows.Forms.RadioButton();
+            this.rbB = new System.Windows.Forms.RadioButton();
+            this.rbA = new System.Windows.Forms.RadioButton();
+            this.numQuestion = new System.Windows.Forms.Label();
+            this.nextBttn = new System.Windows.Forms.Button();
             buttonStart = new System.Windows.Forms.Button();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // buttonStart
             // 
-            buttonStart.Location = new System.Drawing.Point(295, 220);
+            buttonStart.Location = new System.Drawing.Point(121, 347);
             buttonStart.Name = "buttonStart";
             buttonStart.Size = new System.Drawing.Size(141, 33);
             buttonStart.TabIndex = 1;
@@ -46,22 +55,114 @@
             // BigTitle
             // 
             this.BigTitle.AutoSize = true;
-            this.BigTitle.Font = new System.Drawing.Font("Old English Text MT", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BigTitle.Location = new System.Drawing.Point(44, 28);
+            this.BigTitle.BackColor = System.Drawing.SystemColors.Control;
+            this.BigTitle.Font = new System.Drawing.Font("Poor Richard", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BigTitle.Location = new System.Drawing.Point(49, 134);
             this.BigTitle.Name = "BigTitle";
-            this.BigTitle.Size = new System.Drawing.Size(676, 57);
+            this.BigTitle.Size = new System.Drawing.Size(290, 33);
             this.BigTitle.TabIndex = 0;
             this.BigTitle.Text = "LE QCM DE SES MORTS";
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.nextBttn);
+            this.panel1.Controls.Add(this.numQuestion);
+            this.panel1.Controls.Add(this.rbD);
+            this.panel1.Controls.Add(this.rbC);
+            this.panel1.Controls.Add(this.rbB);
+            this.panel1.Controls.Add(this.rbA);
+            this.panel1.Controls.Add(this.questionLabel);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(375, 442);
+            this.panel1.TabIndex = 2;
+            this.panel1.Visible = false;
+            // 
+            // questionLabel
+            // 
+            this.questionLabel.AutoSize = true;
+            this.questionLabel.Location = new System.Drawing.Point(75, 121);
+            this.questionLabel.Name = "questionLabel";
+            this.questionLabel.Size = new System.Drawing.Size(222, 13);
+            this.questionLabel.TabIndex = 0;
+            this.questionLabel.Text = "Mais que voilà si ce n\'est la question suivante";
+            // 
+            // rbD
+            // 
+            this.rbD.AutoSize = true;
+            this.rbD.Location = new System.Drawing.Point(137, 273);
+            this.rbD.Name = "rbD";
+            this.rbD.Size = new System.Drawing.Size(85, 17);
+            this.rbD.TabIndex = 8;
+            this.rbD.TabStop = true;
+            this.rbD.Text = "radioButton4";
+            this.rbD.UseVisualStyleBackColor = true;
+            // 
+            // rbC
+            // 
+            this.rbC.AutoSize = true;
+            this.rbC.Location = new System.Drawing.Point(137, 249);
+            this.rbC.Name = "rbC";
+            this.rbC.Size = new System.Drawing.Size(85, 17);
+            this.rbC.TabIndex = 7;
+            this.rbC.TabStop = true;
+            this.rbC.Text = "radioButton3";
+            this.rbC.UseVisualStyleBackColor = true;
+            // 
+            // rbB
+            // 
+            this.rbB.AutoSize = true;
+            this.rbB.Location = new System.Drawing.Point(137, 226);
+            this.rbB.Name = "rbB";
+            this.rbB.Size = new System.Drawing.Size(85, 17);
+            this.rbB.TabIndex = 6;
+            this.rbB.TabStop = true;
+            this.rbB.Text = "radioButton2";
+            this.rbB.UseVisualStyleBackColor = true;
+            // 
+            // rbA
+            // 
+            this.rbA.AutoSize = true;
+            this.rbA.Location = new System.Drawing.Point(137, 202);
+            this.rbA.Name = "rbA";
+            this.rbA.Size = new System.Drawing.Size(85, 17);
+            this.rbA.TabIndex = 5;
+            this.rbA.TabStop = true;
+            this.rbA.Text = "radioButton1";
+            this.rbA.UseVisualStyleBackColor = true;
+            // 
+            // numQuestion
+            // 
+            this.numQuestion.AutoSize = true;
+            this.numQuestion.Location = new System.Drawing.Point(163, 49);
+            this.numQuestion.Name = "numQuestion";
+            this.numQuestion.Size = new System.Drawing.Size(30, 13);
+            this.numQuestion.TabIndex = 9;
+            this.numQuestion.Text = "1/20";
+            // 
+            // nextBttn
+            // 
+            this.nextBttn.Location = new System.Drawing.Point(137, 347);
+            this.nextBttn.Name = "nextBttn";
+            this.nextBttn.Size = new System.Drawing.Size(75, 23);
+            this.nextBttn.TabIndex = 10;
+            this.nextBttn.Text = "Suivant";
+            this.nextBttn.UseVisualStyleBackColor = true;
+            this.nextBttn.Click += new System.EventHandler(this.nextBttn_Click);
             // 
             // qcm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(749, 486);
+            this.ClientSize = new System.Drawing.Size(375, 442);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(buttonStart);
             this.Controls.Add(this.BigTitle);
             this.Name = "qcm";
             this.Text = "QCM";
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -70,6 +171,14 @@
         #endregion
 
         private System.Windows.Forms.Label BigTitle;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label numQuestion;
+        private System.Windows.Forms.RadioButton rbD;
+        private System.Windows.Forms.RadioButton rbC;
+        private System.Windows.Forms.RadioButton rbB;
+        private System.Windows.Forms.RadioButton rbA;
+        private System.Windows.Forms.Label questionLabel;
+        private System.Windows.Forms.Button nextBttn;
     }
 }
 

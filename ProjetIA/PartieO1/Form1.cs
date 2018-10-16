@@ -19,6 +19,11 @@ namespace PartieO1
 
         private void buttonStart_Click(object sender, EventArgs e)
         {
+            panel1.Visible = true;
+        }
+
+        private void nextBttn_Click(object sender, EventArgs e)
+        {
 
         }
     }
