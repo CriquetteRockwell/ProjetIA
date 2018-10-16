@@ -31,15 +31,20 @@
             System.Windows.Forms.Button buttonStart;
             this.BigTitle = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.questionLabel = new System.Windows.Forms.Label();
+            this.nextBttn = new System.Windows.Forms.Button();
+            this.numQuestion = new System.Windows.Forms.Label();
             this.rbD = new System.Windows.Forms.RadioButton();
             this.rbC = new System.Windows.Forms.RadioButton();
             this.rbB = new System.Windows.Forms.RadioButton();
             this.rbA = new System.Windows.Forms.RadioButton();
-            this.numQuestion = new System.Windows.Forms.Label();
-            this.nextBttn = new System.Windows.Forms.Button();
+            this.questionLabel = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.finLabel = new System.Windows.Forms.Label();
+            this.scoreLabel = new System.Windows.Forms.Label();
+            this.homeBttn = new System.Windows.Forms.Button();
             buttonStart = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // buttonStart
@@ -50,7 +55,7 @@
             buttonStart.TabIndex = 1;
             buttonStart.Text = "Get me started";
             buttonStart.UseVisualStyleBackColor = true;
-            buttonStart.Click += new System.EventHandler(this.buttonStart_Click);
+            buttonStart.Click += new System.EventHandler(this.ButtonStart_Click);
             // 
             // BigTitle
             // 
@@ -65,6 +70,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.nextBttn);
             this.panel1.Controls.Add(this.numQuestion);
             this.panel1.Controls.Add(this.rbD);
@@ -79,14 +85,24 @@
             this.panel1.TabIndex = 2;
             this.panel1.Visible = false;
             // 
-            // questionLabel
+            // nextBttn
             // 
-            this.questionLabel.AutoSize = true;
-            this.questionLabel.Location = new System.Drawing.Point(75, 121);
-            this.questionLabel.Name = "questionLabel";
-            this.questionLabel.Size = new System.Drawing.Size(222, 13);
-            this.questionLabel.TabIndex = 0;
-            this.questionLabel.Text = "Mais que voilà si ce n\'est la question suivante";
+            this.nextBttn.Location = new System.Drawing.Point(137, 347);
+            this.nextBttn.Name = "nextBttn";
+            this.nextBttn.Size = new System.Drawing.Size(75, 23);
+            this.nextBttn.TabIndex = 10;
+            this.nextBttn.Text = "Suivant";
+            this.nextBttn.UseVisualStyleBackColor = true;
+            this.nextBttn.Click += new System.EventHandler(this.NextBttn_Click);
+            // 
+            // numQuestion
+            // 
+            this.numQuestion.AutoSize = true;
+            this.numQuestion.Location = new System.Drawing.Point(163, 49);
+            this.numQuestion.Name = "numQuestion";
+            this.numQuestion.Size = new System.Drawing.Size(30, 13);
+            this.numQuestion.TabIndex = 9;
+            this.numQuestion.Text = "1/20";
             // 
             // rbD
             // 
@@ -132,24 +148,54 @@
             this.rbA.Text = "radioButton1";
             this.rbA.UseVisualStyleBackColor = true;
             // 
-            // numQuestion
+            // questionLabel
             // 
-            this.numQuestion.AutoSize = true;
-            this.numQuestion.Location = new System.Drawing.Point(163, 49);
-            this.numQuestion.Name = "numQuestion";
-            this.numQuestion.Size = new System.Drawing.Size(30, 13);
-            this.numQuestion.TabIndex = 9;
-            this.numQuestion.Text = "1/20";
+            this.questionLabel.AutoSize = true;
+            this.questionLabel.Location = new System.Drawing.Point(75, 121);
+            this.questionLabel.Name = "questionLabel";
+            this.questionLabel.Size = new System.Drawing.Size(222, 13);
+            this.questionLabel.TabIndex = 0;
+            this.questionLabel.Text = "Mais que voilà si ce n\'est la question suivante";
             // 
-            // nextBttn
+            // panel2
             // 
-            this.nextBttn.Location = new System.Drawing.Point(137, 347);
-            this.nextBttn.Name = "nextBttn";
-            this.nextBttn.Size = new System.Drawing.Size(75, 23);
-            this.nextBttn.TabIndex = 10;
-            this.nextBttn.Text = "Suivant";
-            this.nextBttn.UseVisualStyleBackColor = true;
-            this.nextBttn.Click += new System.EventHandler(this.nextBttn_Click);
+            this.panel2.Controls.Add(this.homeBttn);
+            this.panel2.Controls.Add(this.scoreLabel);
+            this.panel2.Controls.Add(this.finLabel);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(375, 442);
+            this.panel2.TabIndex = 11;
+            this.panel2.Visible = false;
+            // 
+            // finLabel
+            // 
+            this.finLabel.AutoSize = true;
+            this.finLabel.Location = new System.Drawing.Point(149, 134);
+            this.finLabel.Name = "finLabel";
+            this.finLabel.Size = new System.Drawing.Size(63, 13);
+            this.finLabel.TabIndex = 0;
+            this.finLabel.Text = "Fin du QCM";
+            // 
+            // scoreLabel
+            // 
+            this.scoreLabel.AutoSize = true;
+            this.scoreLabel.Location = new System.Drawing.Point(166, 171);
+            this.scoreLabel.Name = "scoreLabel";
+            this.scoreLabel.Size = new System.Drawing.Size(30, 13);
+            this.scoreLabel.TabIndex = 1;
+            this.scoreLabel.Text = "0/20";
+            // 
+            // homeBttn
+            // 
+            this.homeBttn.Location = new System.Drawing.Point(137, 272);
+            this.homeBttn.Name = "homeBttn";
+            this.homeBttn.Size = new System.Drawing.Size(75, 23);
+            this.homeBttn.TabIndex = 2;
+            this.homeBttn.Text = "Accueil";
+            this.homeBttn.UseVisualStyleBackColor = true;
+            this.homeBttn.Click += new System.EventHandler(this.homeBttn_Click);
             // 
             // qcm
             // 
@@ -163,6 +209,8 @@
             this.Text = "QCM";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -179,6 +227,10 @@
         private System.Windows.Forms.RadioButton rbA;
         private System.Windows.Forms.Label questionLabel;
         private System.Windows.Forms.Button nextBttn;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button homeBttn;
+        private System.Windows.Forms.Label scoreLabel;
+        private System.Windows.Forms.Label finLabel;
     }
 }
 
