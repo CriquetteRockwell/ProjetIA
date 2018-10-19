@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+﻿xml version="1.0" encoding="utf-8"?>
 <configuration>
   <question name="question1" value="Comment s'appelle le prof d'IA ?"/>
   <connection name="port" value="1024"/>

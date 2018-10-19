@@ -22,6 +22,7 @@ namespace PartieO1
 
         public qcm()
         {
+            lecteurXML Acces = new lecteurXML();
             InitializeComponent();
             Index = 0;
             Indexs = new List<int>();
@@ -32,13 +33,13 @@ namespace PartieO1
             Questions = new List<TestFrage>();
 
             List<string> reponses1 = new List<string>();
-            reponses1.Add("Ta mère"); reponses1.Add("L'univers"); reponses1.Add("L'ego de Claverie"); reponses1.Add("D : la répiinse D");
+            reponses1.Add(Acces.retournerReponse(1,1,"questions.xml")); reponses1.Add(Acces.retournerReponse(1, 2, "questions.xml")); reponses1.Add(Acces.retournerReponse(1, 3, "questions.xml")); reponses1.Add(Acces.retournerReponse(1, 4, "questions.xml"));
 
             List<string> reponses2 = new List<string>();
-            reponses2.Add("Les pd"); reponses2.Add("Les roux"); reponses2.Add("Les femmes"); reponses2.Add("Les noirs");
+            reponses2.Add(Acces.retournerReponse(2, 1, "questions.xml")); reponses2.Add(Acces.retournerReponse(2, 2, "questions.xml")); reponses2.Add(Acces.retournerReponse(2, 3, "questions.xml")); reponses2.Add(Acces.retournerReponse(2, 4, "questions.xml"));
 
-            Questions.Add(new TestFrage("Qu'est-ce qui est le plus gros ?", reponses1, 0));
-            Questions.Add(new TestFrage("Qu'est-ce qui mérite le plus de brûler en enfer ?", reponses2, 1));
+            Questions.Add(new TestFrage(Acces.retournerQuestion(1,"questions.xml"), reponses1, Acces.retournerReponseJusteInt(1,"questions.xml")));
+            Questions.Add(new TestFrage(Acces.retournerQuestion(2, "questions.xml"), reponses2, Acces.retournerReponseJusteInt(2, "questions.xml")));
         }
 
         private void ButtonStart_Click(object sender, EventArgs e)
@@ -101,19 +102,19 @@ namespace PartieO1
         {
             switch (Questions[Index].BonneReponse)
             {
-                case 0:
+                case 1:
                     if (rbA.Checked)
                         CptPoints++;
                     break;
-                case 1:
+                case 2:
                     if (rbB.Checked)
                         CptPoints++;
                     break;
-                case 2:
+                case 3:
                     if (rbC.Checked)
                         CptPoints++;
                     break;
-                case 3:
+                case 4:
                     if (rbD.Checked)
                         CptPoints++;
                     break;
