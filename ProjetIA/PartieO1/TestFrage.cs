@@ -11,12 +11,14 @@ namespace PartieO1
         public string Question { get; set; }
         public List<string> Reponses { get; set; }
         public int BonneReponse { get; set; }
+        public int Poids { get; set; }
 
-        public TestFrage(string question, List<string> reponses, int bonneReponse)
+        public TestFrage(string question, List<string> reponses, int bonneReponse, int poids)
         {
             Question = question;
             Reponses = reponses;
             BonneReponse = bonneReponse;
+            Poids = poids;
         }
     }
 }

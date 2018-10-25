@@ -19,10 +19,10 @@ namespace PartieO1
         public int CptPoints { get; set; }
         public int CptProgression { get; set; }
         List<TestFrage> Questions { get; set; }
+        private lecteurXML Acces = new lecteurXML();
 
         public qcm()
         {
-            lecteurXML Acces = new lecteurXML();
             InitializeComponent();
             Index = 0;
             Indexs = new List<int>();
@@ -32,14 +32,8 @@ namespace PartieO1
             CptProgression = 0;
             Questions = new List<TestFrage>();
 
-            List<string> reponses1 = new List<string>();
-            reponses1.Add(Acces.retournerReponse(1,1,"questions.xml")); reponses1.Add(Acces.retournerReponse(1, 2, "questions.xml")); reponses1.Add(Acces.retournerReponse(1, 3, "questions.xml")); reponses1.Add(Acces.retournerReponse(1, 4, "questions.xml"));
-
-            List<string> reponses2 = new List<string>();
-            reponses2.Add(Acces.retournerReponse(2, 1, "questions.xml")); reponses2.Add(Acces.retournerReponse(2, 2, "questions.xml")); reponses2.Add(Acces.retournerReponse(2, 3, "questions.xml")); reponses2.Add(Acces.retournerReponse(2, 4, "questions.xml"));
-
-            Questions.Add(new TestFrage(Acces.retournerQuestion(1,"questions.xml"), reponses1, Acces.retournerReponseJusteInt(1,"questions.xml")));
-            Questions.Add(new TestFrage(Acces.retournerQuestion(2, "questions.xml"), reponses2, Acces.retournerReponseJusteInt(2, "questions.xml")));
+            AjouterQ(1, "questions.xml");
+            AjouterQ(2, "questions.xml");
         }
 
         private void ButtonStart_Click(object sender, EventArgs e)
@@ -100,27 +94,34 @@ namespace PartieO1
 
         public void VerifierRep()
         {
+            int points = Questions[Index].Poids;
             switch (Questions[Index].BonneReponse)
             {
                 case 1:
                     if (rbA.Checked)
-                        CptPoints++;
+                        CptPoints+=points;
                     break;
                 case 2:
                     if (rbB.Checked)
-                        CptPoints++;
+                        CptPoints += points;
                     break;
                 case 3:
                     if (rbC.Checked)
-                        CptPoints++;
+                        CptPoints += points;
                     break;
                 case 4:
                     if (rbD.Checked)
-                        CptPoints++;
+                        CptPoints += points;
                     break;
                 default:
                     break;
             }
+        }
+        public void AjouterQ(int numQ, string fichier)
+        {
+            List<string> reponses = new List<string>();
+            reponses.Add(Acces.retournerReponse(numQ, 1, "questions.xml")); reponses.Add(Acces.retournerReponse(numQ, 2, "questions.xml")); reponses.Add(Acces.retournerReponse(numQ, 3, "questions.xml")); reponses.Add(Acces.retournerReponse(numQ, 4, "questions.xml"));
+            Questions.Add(new TestFrage(Acces.retournerQuestion(numQ, "questions.xml"), reponses, Acces.retournerReponseJusteInt(numQ, "questions.xml"), Acces.retournerPoids(numQ, "questions.xml")));
         }
     }
 }

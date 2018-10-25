@@ -81,5 +81,22 @@ namespace PartieO1
             if (rep == retournerReponseJusteInt(numQ, fichier)) { return true; }
             else { return false; }
         }
+
+        public int retournerPoids(int numQ, string fichier)
+        {
+            //lis le fichier xml "fichier"
+            // retourner le poids de la question d'indice numQ
+            string question = numQ.ToString();
+            XmlTextReader reader = new XmlTextReader(fichier);
+            while (reader.Read())
+            {
+                XmlNodeType nType = reader.NodeType;
+                if (reader.Name.Equals("question") && reader.GetAttribute("indice").Equals(question))
+                {
+                    return int.Parse(reader.GetAttribute("poids"));
+                }
+            }
+            return 0;
+        }
     }
 }
