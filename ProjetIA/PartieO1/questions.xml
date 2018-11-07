@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<questionnaire>
+  <question indice="1" nom="Comment s'appelle le prof ?" rep1 ="Jean-Marc Salotti" rep2 ="Ji-Marc Salottean" rep3 ="Jean-Sarc Malotti" rep4 ="Jean-larc Samotti" bonneR ="1" poids="1"/>
+  <question indice="2" nom="tu préfères ?" rep1 ="le pain" rep2 ="les vaches" rep3 ="les dinosaures" rep4 ="A380" bonneR ="4" poids ="2"/>
+</questionnaire>
+
