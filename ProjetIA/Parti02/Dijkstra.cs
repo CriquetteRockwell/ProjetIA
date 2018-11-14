@@ -13,23 +13,36 @@ namespace Parti02
         public List<Point> Ferme { get; set; }
         public Point Premier { get; set; }
         public Point Dernier { get; set; }
-
         public Dijkstra(List<Point> graphe, Point p,Point d)
         {
             Graphe = graphe;
             Premier = p;
             Dernier = d;
+            Ouvert = new List<Point>();
+            Ferme = new List<Point>();
         }
 
         public int Rechercher()
         {
             int dist = 0;
             Ouvert.Add(Premier);
-            Ouvert[0].DistParcourue = 0;
+            Console.WriteLine("O = [" + Afficher(Ouvert) + "]");
+            Console.WriteLine("F = [" + Afficher(Ferme) + "]");
+            Premier.DistParcourue = 0;
+            Console.WriteLine("Points fils de A : " +Afficher(Premier.PA));
+            foreach (Point pt in Premier.PA)
+            {
+                Console.WriteLine("Point fils : "+pt.Nom + "  -  Point Père : " + Premier.Nom);
+                Console.WriteLine("Points fils du points fils : "+Afficher(pt.PA));
+                pt.APourOrigine(Premier);
+                Ouvert.Add(pt);
+            }
+            FermerPoint(Premier);
             //Ajouter points suivant dans ouverts
             while (!EstPresentDansListe(Dernier,Ferme))
             {
-                Console.WriteLine(this.Afficher(Ouvert));
+                Console.WriteLine("O = ["+Afficher(Ouvert)+"]");
+                Console.WriteLine("F = ["+Afficher(Ferme)+"]");
                 /* TO DO : 
                  * Initialisation : Premier va dans fermé. Ses fils vont dans Ouvert. On modifie leur DistParcourue à ce moment là
                  * Boucle : On affiche l'état d'Ouvert et Fermé
@@ -43,8 +56,7 @@ namespace Parti02
                 Point ptChoisi=Ouvert[0];
                 //Selection du point avec la plus petite distance par rapport au début
                 for(int i=0;i<Ouvert.Count();i++)
-                {
-                    Ouvert[i].CalculeDistanceParcourue();                    
+                {                 
                     if(Ouvert[i].CulDeSac)
                         //On enlève les points cul de sac
                     {
@@ -61,20 +73,25 @@ namespace Parti02
                     }
                 }
                 FermerPoint(ptChoisi);
+                Console.WriteLine("Points fils de: "+ptChoisi.Nom+" : " + Afficher(ptChoisi.PA));
                 //On compare les points fermés et des points fils de ptChoisi pour les retirer des possibilités.
-                foreach(Point ptf in Ferme)
+                foreach (Point ptf in Ferme)
                 {
                     foreach(Point pt in ptChoisi.PA)
                     {
-                        if(ptf==pt)
+                        if(ptf!=ptChoisi)
                         {
-                            ptChoisi.RetirerPoint(pt);
+                            Console.WriteLine("Point fils : " + pt.Nom + "  -  Point Père : " + ptChoisi.Nom);
+
+                            Console.WriteLine("Points fils du points fils : " + Afficher(pt.PA));
+                            //Y a un pb quand on est cul de sac
+                            if (ptf != pt)
+                            {
+                                pt.APourOrigine(ptChoisi);
+                                Ouvert.Add(pt);
+                            }
                         }
-                        else
-                        {
-                            pt.APourOrigine(ptChoisi);
-                            Ouvert.Add(pt);
-                        }
+                        
                     }
                 }
             }
@@ -101,7 +118,7 @@ namespace Parti02
             string affichage = "";
             for(int i =0;i<lp.Count();i++)
             {
-                affichage += lp[i].Nom + ", ";
+                affichage += lp[i].Nom + " ";
             }
             return affichage;
         }

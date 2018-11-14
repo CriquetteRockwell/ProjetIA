@@ -15,19 +15,22 @@ namespace Parti02
         public int DistParcourue { get; set; }
         public bool CulDeSac;
         public Point Origine;
-        public Point(string n, List<Point> pa, List<int> dpa)
+        public Point(string n)
         {
             Nom = n;
-            PA = pa;
-            DistPA = dpa;
             DistParcourue = 100000;
             CulDeSac = false;
-            this.EstCulDeSac();
         }
 
+        public void AjouterPA(List<Point> pa, List<int> dpa)
+        {
+            PA = pa;
+            DistPA = dpa;
+            this.EstCulDeSac();
+        }
         public void CalculeDistanceParcourue()
         {
-            DistParcourue = Origine.DistParcourue + DistPA[PA.IndexOf(Origine)];
+            
         }
 
         public void RetirerPoint(Point pt)
@@ -36,10 +39,17 @@ namespace Parti02
             PA.Remove(pt);
             DistPA.RemoveAt(index);
         }
+        public void AjouterPoint(Point pt, int dist)
+        {
+            PA.Add(pt);
+            DistPA.Add(dist);
+        }
         public void APourOrigine(Point origine)
         {
             Origine = origine;
-            this.RetirerPoint(Origine);
+            DistParcourue = Origine.DistParcourue + DistPA[PA.IndexOf(Origine)];
+            RetirerPoint(Origine);
+            EstCulDeSac();
         }
 
         public void EstCulDeSac()
