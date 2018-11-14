@@ -29,24 +29,51 @@ namespace Parti02
             //Ajouter points suivant dans ouverts
             while (!EstPresentDansListe(Dernier,Ferme))
             {
-                int plusPetitChemin = Ouvert[0].DistParcourue + Ouvert[0].DistMin;
-                int ptChoisi = 0;
-
+                Console.WriteLine(this.Afficher(Ouvert));
+                /* TO DO : 
+                 * Initialisation : Premier va dans fermé. Ses fils vont dans Ouvert. On modifie leur DistParcourue à ce moment là
+                 * Boucle : On affiche l'état d'Ouvert et Fermé
+                 *          On tej les culs de sac
+                 *          On cherche dans Ouvert le point avec DistParcourue la moins grande
+                 *          On lui retire ses points adjacents étant déjà dans Fermé
+                 *          On le met dans Fermé
+                 *          On met ses points adjacents restant dans Ouvert
+                */
+                int plusPetitChemin = 100000;
+                Point ptChoisi=Ouvert[0];
+                //Selection du point avec la plus petite distance par rapport au début
                 for(int i=0;i<Ouvert.Count();i++)
                 {
-                    if(Ouvert[i].DistMin==-1)
+                    Ouvert[i].CalculeDistanceParcourue();                    
+                    if(Ouvert[i].CulDeSac)
                         //On enlève les points cul de sac
                     {
-                        Ferme.Add(Ouvert[i]);
-                        Ouvert.RemoveAt(i);
+                        FermerPoint(Ouvert[i]);
                     }
                     else
                     // On cherche le point avec le poids le moins fort
                     {
-                        if(Ouvert[i].DistParcourue + Ouvert[i].DistMin < plusPetitChemin)
+                        if(Ouvert[i].DistParcourue  < plusPetitChemin)
                         {
-                            plusPetitChemin = Ouvert[i].DistParcourue + Ouvert[i].DistMin;
-                            ptChoisi = i;
+                            plusPetitChemin = Ouvert[i].DistParcourue;
+                            ptChoisi = Ouvert[i];
+                        }
+                    }
+                }
+                FermerPoint(ptChoisi);
+                //On compare les points fermés et des points fils de ptChoisi pour les retirer des possibilités.
+                foreach(Point ptf in Ferme)
+                {
+                    foreach(Point pt in ptChoisi.PA)
+                    {
+                        if(ptf==pt)
+                        {
+                            ptChoisi.RetirerPoint(pt);
+                        }
+                        else
+                        {
+                            pt.APourOrigine(ptChoisi);
+                            Ouvert.Add(pt);
                         }
                     }
                 }
@@ -54,6 +81,11 @@ namespace Parti02
             return dist;
         }
 
+        public void FermerPoint(Point pt)
+        {
+            Ferme.Add(pt);
+            Ouvert.Remove(pt);
+        }
         public bool EstPresentDansListe(Point P, List<Point> Points)
         {
             bool test = false;
@@ -63,6 +95,15 @@ namespace Parti02
                     test = true;
             }
             return test;
+        }
+        public string Afficher (List<Point> lp)
+        {
+            string affichage = "";
+            for(int i =0;i<lp.Count();i++)
+            {
+                affichage += lp[i].Nom + ", ";
+            }
+            return affichage;
         }
     }
 }
