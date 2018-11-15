@@ -42,14 +42,14 @@ namespace Parti02
             List<Point> paD = new List<Point>();
             paD.Add(B); 
             List<int> dpaD = new List<int>();
-            dpaD.Add(5); 
+            dpaD.Add(1); 
             D.AjouterPA(paD, dpaD);
 
             //Construction point E
             List<Point> paE = new List<Point>();
             paE.Add(B); paE.Add(F);
             List<int> dpaE = new List<int>();
-            dpaE.Add(6); dpaE.Add(3);
+            dpaE.Add(2); dpaE.Add(3);
             E.AjouterPA(paE, dpaE);
 
             //Construction point F

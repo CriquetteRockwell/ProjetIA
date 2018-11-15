@@ -18,7 +18,7 @@ namespace Parti02
         public Point(string n)
         {
             Nom = n;
-            DistParcourue = 100000;
+            DistParcourue = 0;
             CulDeSac = false;
         }
 
