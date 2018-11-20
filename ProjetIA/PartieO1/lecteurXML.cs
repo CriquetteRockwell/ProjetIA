@@ -4,6 +4,23 @@ namespace PartieO1
 {
     class lecteurXML
     {
+
+        public string Image(int num, string fichier)
+        {
+            //lis le fichier xml "fichier"
+            //renvoie le chemin local de l'image de la question de l'indice demandé
+            string x = num.ToString();
+            XmlTextReader reader = new XmlTextReader(fichier);
+            while (reader.Read())
+            {
+                XmlNodeType nType = reader.NodeType;
+                if (reader.Name.Equals("question") && reader.GetAttribute("indice").Equals(x))
+                {
+                    return reader.GetAttribute("image");
+                }
+            }
+            return "oupsy doopsy";
+        }
         public string retournerQuestion(int num, string fichier)
         {
             //lis le fichier xml "fichier"
