@@ -1,5 +1,5 @@
 ﻿using System.Xml;
-
+//
 namespace PartieO1
 {
     class lecteurXML

@@ -31,6 +31,10 @@
             System.Windows.Forms.Button buttonStart;
             this.BigTitle = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.homeBttn = new System.Windows.Forms.Button();
+            this.scoreLabel = new System.Windows.Forms.Label();
+            this.finLabel = new System.Windows.Forms.Label();
             this.nextBttn = new System.Windows.Forms.Button();
             this.numQuestion = new System.Windows.Forms.Label();
             this.rbD = new System.Windows.Forms.RadioButton();
@@ -38,10 +42,6 @@
             this.rbB = new System.Windows.Forms.RadioButton();
             this.rbA = new System.Windows.Forms.RadioButton();
             this.questionLabel = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.finLabel = new System.Windows.Forms.Label();
-            this.scoreLabel = new System.Windows.Forms.Label();
-            this.homeBttn = new System.Windows.Forms.Button();
             buttonStart = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -81,9 +81,49 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(375, 442);
+            this.panel1.Size = new System.Drawing.Size(596, 502);
             this.panel1.TabIndex = 2;
             this.panel1.Visible = false;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.homeBttn);
+            this.panel2.Controls.Add(this.scoreLabel);
+            this.panel2.Controls.Add(this.finLabel);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(596, 502);
+            this.panel2.TabIndex = 11;
+            this.panel2.Visible = false;
+            // 
+            // homeBttn
+            // 
+            this.homeBttn.Location = new System.Drawing.Point(137, 272);
+            this.homeBttn.Name = "homeBttn";
+            this.homeBttn.Size = new System.Drawing.Size(75, 23);
+            this.homeBttn.TabIndex = 2;
+            this.homeBttn.Text = "Accueil";
+            this.homeBttn.UseVisualStyleBackColor = true;
+            this.homeBttn.Click += new System.EventHandler(this.homeBttn_Click);
+            // 
+            // scoreLabel
+            // 
+            this.scoreLabel.AutoSize = true;
+            this.scoreLabel.Location = new System.Drawing.Point(166, 171);
+            this.scoreLabel.Name = "scoreLabel";
+            this.scoreLabel.Size = new System.Drawing.Size(30, 13);
+            this.scoreLabel.TabIndex = 1;
+            this.scoreLabel.Text = "0/20";
+            // 
+            // finLabel
+            // 
+            this.finLabel.AutoSize = true;
+            this.finLabel.Location = new System.Drawing.Point(149, 134);
+            this.finLabel.Name = "finLabel";
+            this.finLabel.Size = new System.Drawing.Size(63, 13);
+            this.finLabel.TabIndex = 0;
+            this.finLabel.Text = "Fin du QCM";
             // 
             // nextBttn
             // 
@@ -157,51 +197,11 @@
             this.questionLabel.TabIndex = 0;
             this.questionLabel.Text = "Mais que voilà si ce n\'est la question suivante";
             // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.homeBttn);
-            this.panel2.Controls.Add(this.scoreLabel);
-            this.panel2.Controls.Add(this.finLabel);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(375, 442);
-            this.panel2.TabIndex = 11;
-            this.panel2.Visible = false;
-            // 
-            // finLabel
-            // 
-            this.finLabel.AutoSize = true;
-            this.finLabel.Location = new System.Drawing.Point(149, 134);
-            this.finLabel.Name = "finLabel";
-            this.finLabel.Size = new System.Drawing.Size(63, 13);
-            this.finLabel.TabIndex = 0;
-            this.finLabel.Text = "Fin du QCM";
-            // 
-            // scoreLabel
-            // 
-            this.scoreLabel.AutoSize = true;
-            this.scoreLabel.Location = new System.Drawing.Point(166, 171);
-            this.scoreLabel.Name = "scoreLabel";
-            this.scoreLabel.Size = new System.Drawing.Size(30, 13);
-            this.scoreLabel.TabIndex = 1;
-            this.scoreLabel.Text = "0/20";
-            // 
-            // homeBttn
-            // 
-            this.homeBttn.Location = new System.Drawing.Point(137, 272);
-            this.homeBttn.Name = "homeBttn";
-            this.homeBttn.Size = new System.Drawing.Size(75, 23);
-            this.homeBttn.TabIndex = 2;
-            this.homeBttn.Text = "Accueil";
-            this.homeBttn.UseVisualStyleBackColor = true;
-            this.homeBttn.Click += new System.EventHandler(this.homeBttn_Click);
-            // 
             // qcm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(375, 442);
+            this.ClientSize = new System.Drawing.Size(596, 502);
             this.Controls.Add(this.panel1);
             this.Controls.Add(buttonStart);
             this.Controls.Add(this.BigTitle);
