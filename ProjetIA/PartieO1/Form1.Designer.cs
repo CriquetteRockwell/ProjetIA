@@ -35,6 +35,7 @@
             this.homeBttn = new System.Windows.Forms.Button();
             this.scoreLabel = new System.Windows.Forms.Label();
             this.finLabel = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.nextBttn = new System.Windows.Forms.Button();
             this.numQuestion = new System.Windows.Forms.Label();
             this.rbD = new System.Windows.Forms.RadioButton();
@@ -42,7 +43,6 @@
             this.rbB = new System.Windows.Forms.RadioButton();
             this.rbA = new System.Windows.Forms.RadioButton();
             this.questionLabel = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             buttonStart = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -84,7 +84,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(752, 576);
+            this.panel1.Size = new System.Drawing.Size(1027, 645);
             this.panel1.TabIndex = 2;
             this.panel1.Visible = false;
             // 
@@ -96,7 +96,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(752, 576);
+            this.panel2.Size = new System.Drawing.Size(1027, 645);
             this.panel2.TabIndex = 11;
             this.panel2.Visible = false;
             // 
@@ -128,9 +128,18 @@
             this.finLabel.TabIndex = 0;
             this.finLabel.Text = "Fin du QCM";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.ImageLocation = "H:\\IA\\Projet\\ProjetIA\\ProjetIA\\PartieO1\\images\\seeulater.jpeg";
+            this.pictureBox1.Location = new System.Drawing.Point(590, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(425, 552);
+            this.pictureBox1.TabIndex = 12;
+            this.pictureBox1.TabStop = false;
+            // 
             // nextBttn
             // 
-            this.nextBttn.Location = new System.Drawing.Point(137, 347);
+            this.nextBttn.Location = new System.Drawing.Point(137, 574);
             this.nextBttn.Name = "nextBttn";
             this.nextBttn.Size = new System.Drawing.Size(75, 23);
             this.nextBttn.TabIndex = 10;
@@ -150,7 +159,7 @@
             // rbD
             // 
             this.rbD.AutoSize = true;
-            this.rbD.Location = new System.Drawing.Point(137, 273);
+            this.rbD.Location = new System.Drawing.Point(137, 441);
             this.rbD.Name = "rbD";
             this.rbD.Size = new System.Drawing.Size(85, 17);
             this.rbD.TabIndex = 8;
@@ -161,7 +170,7 @@
             // rbC
             // 
             this.rbC.AutoSize = true;
-            this.rbC.Location = new System.Drawing.Point(137, 249);
+            this.rbC.Location = new System.Drawing.Point(137, 355);
             this.rbC.Name = "rbC";
             this.rbC.Size = new System.Drawing.Size(85, 17);
             this.rbC.TabIndex = 7;
@@ -172,7 +181,7 @@
             // rbB
             // 
             this.rbB.AutoSize = true;
-            this.rbB.Location = new System.Drawing.Point(137, 226);
+            this.rbB.Location = new System.Drawing.Point(137, 278);
             this.rbB.Name = "rbB";
             this.rbB.Size = new System.Drawing.Size(85, 17);
             this.rbB.TabIndex = 6;
@@ -183,7 +192,7 @@
             // rbA
             // 
             this.rbA.AutoSize = true;
-            this.rbA.Location = new System.Drawing.Point(137, 202);
+            this.rbA.Location = new System.Drawing.Point(137, 203);
             this.rbA.Name = "rbA";
             this.rbA.Size = new System.Drawing.Size(85, 17);
             this.rbA.TabIndex = 5;
@@ -193,27 +202,17 @@
             // 
             // questionLabel
             // 
-            this.questionLabel.AutoSize = true;
-            this.questionLabel.Location = new System.Drawing.Point(75, 121);
+            this.questionLabel.Location = new System.Drawing.Point(75, 80);
             this.questionLabel.Name = "questionLabel";
-            this.questionLabel.Size = new System.Drawing.Size(222, 13);
+            this.questionLabel.Size = new System.Drawing.Size(500, 70);
             this.questionLabel.TabIndex = 0;
-            this.questionLabel.Text = "Mais que voilà si ce n\'est la question suivante";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.ImageLocation = "H:\\IA\\Projet\\ProjetIA\\ProjetIA\\PartieO1\\images\\seeulater.jpeg";
-            this.pictureBox1.Location = new System.Drawing.Point(305, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(425, 552);
-            this.pictureBox1.TabIndex = 12;
-            this.pictureBox1.TabStop = false;
+            this.questionLabel.Text = "Mais que voilà si ce n\'est la question suivanteqfq\r\nretezte\r\nzerrtze\r\n\r\nrsdg";
             // 
             // qcm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(752, 576);
+            this.ClientSize = new System.Drawing.Size(1027, 645);
             this.Controls.Add(this.panel1);
             this.Controls.Add(buttonStart);
             this.Controls.Add(this.BigTitle);

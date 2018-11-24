@@ -20,6 +20,7 @@ namespace PartieO1
         public int CptProgression { get; set; }
         List<TestFrage> Questions { get; set; }
         private lecteurXML Acces = new lecteurXML();
+        public int sommePoids { get; set; }
 
         public qcm()
         {
@@ -30,10 +31,22 @@ namespace PartieO1
 
             CptPoints = 0;
             CptProgression = 0;
+            sommePoids = 0;
+
             Questions = new List<TestFrage>();
 
-            AjouterQ(1, "questions.xml");
-            AjouterQ(2, "questions.xml");
+            List<int> numQuestions = new List<int>();
+
+            for (int k = 0; k < 20; k++)
+            {
+                int num = r.Next(1, 30);
+                while(numQuestions.Contains(num))
+                { num = r.Next(1, 30); }
+                numQuestions.Add(num);
+            }
+
+            foreach(int q in numQuestions)
+            { AjouterQ(q, "questions.xml"); }
         }
 
         private void ButtonStart_Click(object sender, EventArgs e)
@@ -45,12 +58,9 @@ namespace PartieO1
 
         private void NextBttn_Click(object sender, EventArgs e)
         {
-            VerifierRep();
             ChangerQuestion();
-            if (Index == -1)
-            {
-                panel2.Visible = true;
-            }
+            if (Index == -1){panel2.Visible = true;}
+            else {VerifierRep(); }
         }
 
         public void ChangerQuestion()
@@ -60,6 +70,8 @@ namespace PartieO1
             {
                 Index = Indexs[r.Next(Indexs.Count)];
                 Indexs.Remove(Index);
+
+                numQuestion.Text = (20 - Indexs.Count()).ToString();
 
                 TestFrage question = Questions[Index];
                 rbA.Text = question.Reponses[0];
@@ -73,7 +85,8 @@ namespace PartieO1
             else
             {
                 Index = -1;
-                scoreLabel.Text = "" + CptPoints + " / 20";
+                double score = CptPoints*20 / sommePoids;
+                scoreLabel.Text = "" + score + " / 20";
             }
         }
 
@@ -87,7 +100,7 @@ namespace PartieO1
 
         private void InitListeIndex()
         {
-            for (int i = 0; i < 2; i++)
+            for (int i = 0; i < 20; i++)
             {
                 Indexs.Add(i);
             }
@@ -117,6 +130,7 @@ namespace PartieO1
                 default:
                     break;
             }
+            sommePoids += Questions[Index].Poids;
         }
         public void AjouterQ(int numQ, string fichier)
         {
