@@ -28,10 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btn_5 = new System.Windows.Forms.Button();
             this.lbl_cons = new System.Windows.Forms.Label();
             this.lbl_verif_suivant = new System.Windows.Forms.Label();
-            this.arbreJuste = new System.Windows.Forms.TreeView();
             this.lbl_verif_arbre = new System.Windows.Forms.Label();
             this.btn_verif_arbre = new System.Windows.Forms.Button();
             this.btn_suivant = new System.Windows.Forms.Button();
@@ -43,17 +41,10 @@
             this.Ouverts = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.treeView1 = new System.Windows.Forms.TreeView();
+            this.btn_validation = new System.Windows.Forms.Button();
+            this.arbreJuste = new System.Windows.Forms.TreeView();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // btn_5
-            // 
-            this.btn_5.Location = new System.Drawing.Point(548, 42);
-            this.btn_5.Name = "btn_5";
-            this.btn_5.Size = new System.Drawing.Size(75, 23);
-            this.btn_5.TabIndex = 38;
-            this.btn_5.Text = "5";
-            this.btn_5.UseVisualStyleBackColor = true;
             // 
             // lbl_cons
             // 
@@ -69,26 +60,16 @@
             this.lbl_verif_suivant.AutoSize = true;
             this.lbl_verif_suivant.Location = new System.Drawing.Point(918, 464);
             this.lbl_verif_suivant.Name = "lbl_verif_suivant";
-            this.lbl_verif_suivant.Size = new System.Drawing.Size(35, 13);
+            this.lbl_verif_suivant.Size = new System.Drawing.Size(0, 13);
             this.lbl_verif_suivant.TabIndex = 36;
-            this.lbl_verif_suivant.Text = "label2";
-            // 
-            // arbreJuste
-            // 
-            this.arbreJuste.LabelEdit = true;
-            this.arbreJuste.Location = new System.Drawing.Point(991, 18);
-            this.arbreJuste.Name = "arbreJuste";
-            this.arbreJuste.Size = new System.Drawing.Size(88, 169);
-            this.arbreJuste.TabIndex = 35;
             // 
             // lbl_verif_arbre
             // 
             this.lbl_verif_arbre.AutoSize = true;
             this.lbl_verif_arbre.Location = new System.Drawing.Point(918, 105);
             this.lbl_verif_arbre.Name = "lbl_verif_arbre";
-            this.lbl_verif_arbre.Size = new System.Drawing.Size(35, 13);
+            this.lbl_verif_arbre.Size = new System.Drawing.Size(0, 13);
             this.lbl_verif_arbre.TabIndex = 34;
-            this.lbl_verif_arbre.Text = "label1";
             // 
             // btn_verif_arbre
             // 
@@ -98,6 +79,7 @@
             this.btn_verif_arbre.TabIndex = 33;
             this.btn_verif_arbre.Text = "Vérifier";
             this.btn_verif_arbre.UseVisualStyleBackColor = true;
+            this.btn_verif_arbre.Click += new System.EventHandler(this.btn_verif_arbre_Click);
             // 
             // btn_suivant
             // 
@@ -107,6 +89,7 @@
             this.btn_suivant.TabIndex = 32;
             this.btn_suivant.Text = "Suivant";
             this.btn_suivant.UseVisualStyleBackColor = true;
+            this.btn_suivant.Click += new System.EventHandler(this.btn_suivant_Click);
             // 
             // listBoxF
             // 
@@ -175,12 +158,32 @@
             this.treeView1.Size = new System.Drawing.Size(88, 179);
             this.treeView1.TabIndex = 24;
             // 
+            // btn_validation
+            // 
+            this.btn_validation.Location = new System.Drawing.Point(891, 623);
+            this.btn_validation.Name = "btn_validation";
+            this.btn_validation.Size = new System.Drawing.Size(117, 23);
+            this.btn_validation.TabIndex = 38;
+            this.btn_validation.Text = "Finir la question";
+            this.btn_validation.UseVisualStyleBackColor = true;
+            this.btn_validation.Click += new System.EventHandler(this.btn_validation_Click);
+            // 
+            // arbreJuste
+            // 
+            this.arbreJuste.Enabled = false;
+            this.arbreJuste.LabelEdit = true;
+            this.arbreJuste.Location = new System.Drawing.Point(991, 18);
+            this.arbreJuste.Name = "arbreJuste";
+            this.arbreJuste.Size = new System.Drawing.Size(88, 169);
+            this.arbreJuste.TabIndex = 35;
+            this.arbreJuste.Visible = false;
+            // 
             // QuestionD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1186, 674);
-            this.Controls.Add(this.btn_5);
+            this.Controls.Add(this.btn_validation);
             this.Controls.Add(this.lbl_cons);
             this.Controls.Add(this.lbl_verif_suivant);
             this.Controls.Add(this.arbreJuste);
@@ -204,11 +207,8 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btn_5;
         private System.Windows.Forms.Label lbl_cons;
         private System.Windows.Forms.Label lbl_verif_suivant;
-        private System.Windows.Forms.TreeView arbreJuste;
         private System.Windows.Forms.Label lbl_verif_arbre;
         private System.Windows.Forms.Button btn_verif_arbre;
         private System.Windows.Forms.Button btn_suivant;
@@ -220,5 +220,7 @@
         private System.Windows.Forms.Label Ouverts;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TreeView treeView1;
+        private System.Windows.Forms.Button btn_validation;
+        private System.Windows.Forms.TreeView arbreJuste;
     }
 }

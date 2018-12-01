@@ -62,6 +62,7 @@ namespace PartieO1
             if (Index == -1){
                 QuestionD form2 = new QuestionD();
                 form2.ShowDialog();
+                CptPoints += form2.nbrPoints;
                 panel2.Visible = true;
             }
             else {VerifierRep(); }
