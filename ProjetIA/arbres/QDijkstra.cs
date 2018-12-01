@@ -163,6 +163,11 @@ namespace arbres
 
         }
 
+        private void btn_5_Click(object sender, EventArgs e)
+        {
+
+        }
+
         /* private  Dijkstra Djikstra(Point A, Point B, Point C, Point D, Point E, Point F, Point G)
         {
             // Construction point A
@@ -219,6 +224,6 @@ namespace arbres
             return d;
         }*/
 
-        
+
     }
 }

@@ -10,17 +10,11 @@ using System.Windows.Forms;
 
 namespace PartieO1
 {
-    public partial class FormImage : Form
+    public partial class QuestionD : Form
     {
-        private lecteurXML Acces = new lecteurXML();
-        public FormImage()
+        public QuestionD()
         {
             InitializeComponent();
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-            Show();
         }
     }
 }

@@ -41,6 +41,8 @@
             this.lbl_verif_arbre = new System.Windows.Forms.Label();
             this.arbreJuste = new System.Windows.Forms.TreeView();
             this.lbl_verif_suivant = new System.Windows.Forms.Label();
+            this.lbl_cons = new System.Windows.Forms.Label();
+            this.btn_5 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,9 +57,9 @@
             // pictureBox1
             // 
             this.pictureBox1.ImageLocation = "H:\\IA\\arbres\\arbres\\arbres\\graphe.png";
-            this.pictureBox1.Location = new System.Drawing.Point(72, 0);
+            this.pictureBox1.Location = new System.Drawing.Point(72, 137);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(781, 633);
+            this.pictureBox1.Size = new System.Drawing.Size(738, 498);
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
             // 
@@ -123,7 +125,7 @@
             // 
             // btn_verif_arbre
             // 
-            this.btn_verif_arbre.Location = new System.Drawing.Point(843, 22);
+            this.btn_verif_arbre.Location = new System.Drawing.Point(1019, 57);
             this.btn_verif_arbre.Name = "btn_verif_arbre";
             this.btn_verif_arbre.Size = new System.Drawing.Size(75, 23);
             this.btn_verif_arbre.TabIndex = 17;
@@ -134,7 +136,7 @@
             // lbl_verif_arbre
             // 
             this.lbl_verif_arbre.AutoSize = true;
-            this.lbl_verif_arbre.Location = new System.Drawing.Point(859, 79);
+            this.lbl_verif_arbre.Location = new System.Drawing.Point(1034, 109);
             this.lbl_verif_arbre.Name = "lbl_verif_arbre";
             this.lbl_verif_arbre.Size = new System.Drawing.Size(35, 13);
             this.lbl_verif_arbre.TabIndex = 18;
@@ -157,11 +159,32 @@
             this.lbl_verif_suivant.TabIndex = 21;
             this.lbl_verif_suivant.Text = "label2";
             // 
+            // lbl_cons
+            // 
+            this.lbl_cons.AutoSize = true;
+            this.lbl_cons.Location = new System.Drawing.Point(258, 57);
+            this.lbl_cons.Name = "lbl_cons";
+            this.lbl_cons.Size = new System.Drawing.Size(128, 13);
+            this.lbl_cons.TabIndex = 22;
+            this.lbl_cons.Text = "Aller du point A au point F";
+            // 
+            // btn_5
+            // 
+            this.btn_5.Location = new System.Drawing.Point(664, 46);
+            this.btn_5.Name = "btn_5";
+            this.btn_5.Size = new System.Drawing.Size(75, 23);
+            this.btn_5.TabIndex = 23;
+            this.btn_5.Text = "5";
+            this.btn_5.UseVisualStyleBackColor = true;
+            this.btn_5.Click += new System.EventHandler(this.btn_5_Click);
+            // 
             // QDijkstra
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1247, 635);
+            this.Controls.Add(this.btn_5);
+            this.Controls.Add(this.lbl_cons);
             this.Controls.Add(this.lbl_verif_suivant);
             this.Controls.Add(this.arbreJuste);
             this.Controls.Add(this.lbl_verif_arbre);
@@ -199,6 +222,8 @@
         private System.Windows.Forms.Label lbl_verif_arbre;
         private System.Windows.Forms.TreeView arbreJuste;
         private System.Windows.Forms.Label lbl_verif_suivant;
+        private System.Windows.Forms.Label lbl_cons;
+        private System.Windows.Forms.Button btn_5;
     }
 }
 

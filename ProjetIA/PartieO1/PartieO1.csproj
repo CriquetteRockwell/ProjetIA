@@ -67,22 +67,19 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormImage.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormImage.Designer.cs">
-      <DependentUpon>FormImage.cs</DependentUpon>
-    </Compile>
     <Compile Include="lecteurXML.cs" />
     <Compile Include="Point.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QuestionD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QuestionD.Designer.cs">
+      <DependentUpon>QuestionD.cs</DependentUpon>
+    </Compile>
     <Compile Include="TestFrage.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormImage.resx">
-      <DependentUpon>FormImage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -94,6 +91,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="QuestionD.resx">
+      <DependentUpon>QuestionD.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -122,6 +122,16 @@
   <ItemGroup>
     <Content Include="images\BSM.jpg" />
     <None Include="Properties\BSM.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\arbres\arbres.csproj">
+      <Project>{c510807c-89c7-4f13-9653-819f7d003296}</Project>
+      <Name>arbres</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Parti02\Parti02.csproj">
+      <Project>{8b73257f-8fcc-4cdc-b02e-988f05805de8}</Project>
+      <Name>Parti02</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

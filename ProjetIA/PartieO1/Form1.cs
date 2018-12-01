@@ -37,7 +37,7 @@ namespace PartieO1
 
             List<int> numQuestions = new List<int>();
 
-            for (int k = 0; k < 20; k++)
+            for (int k = 0; k < 19; k++)
             {
                 int num = r.Next(1, 30);
                 while(numQuestions.Contains(num))
@@ -59,7 +59,11 @@ namespace PartieO1
         private void NextBttn_Click(object sender, EventArgs e)
         {
             ChangerQuestion();
-            if (Index == -1){panel2.Visible = true;}
+            if (Index == -1){
+                QuestionD form2 = new QuestionD();
+                form2.ShowDialog();
+                panel2.Visible = true;
+            }
             else {VerifierRep(); }
         }
 
@@ -71,7 +75,7 @@ namespace PartieO1
                 Index = Indexs[r.Next(Indexs.Count)];
                 Indexs.Remove(Index);
 
-                numQuestion.Text = (20 - Indexs.Count()).ToString();
+                numQuestion.Text = (19 - Indexs.Count()).ToString();
 
                 TestFrage question = Questions[Index];
                 rbA.Text = question.Reponses[0];
@@ -100,7 +104,7 @@ namespace PartieO1
 
         private void InitListeIndex()
         {
-            for (int i = 0; i < 20; i++)
+            for (int i = 0; i <19; i++)
             {
                 Indexs.Add(i);
             }
