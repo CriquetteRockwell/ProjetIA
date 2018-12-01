@@ -34,7 +34,7 @@ namespace arbres
             Parti02.Point E = new Parti02.Point("E");
             Parti02.Point F = new Parti02.Point("F");
             Parti02.Point G = new Parti02.Point("G");
-            dij = new Dijkstra("A", "E");
+            dij = new Dijkstra("A", "F");
             nbrDijkstra = dij.Nombre;
             foreach (Parti02.Point p in dij.Graphe )
             {
@@ -50,16 +50,39 @@ namespace arbres
 
         private void InitArbreJuste()
         {
-            arbreJuste.Nodes.Add("A");
+            
+            arbreJuste.Nodes.Add(dij.Premier.Nom+":"+dij.Premier.DistParcourue);
+            AjouterChildNode(arbreJuste.Nodes[0].Nodes, dij.Premier);
+            //arbreJuste.Nodes[0].Nodes.Add("B");
+            //arbreJuste.Nodes[0].Nodes.Add("C");
 
-            arbreJuste.Nodes[0].Nodes.Add("B");
-            arbreJuste.Nodes[0].Nodes.Add("C");
+            //arbreJuste.Nodes[0].Nodes[0].Nodes.Add("D");
+            //arbreJuste.Nodes[0].Nodes[0].Nodes.Add("E");
 
-            arbreJuste.Nodes[0].Nodes[0].Nodes.Add("D");
-            arbreJuste.Nodes[0].Nodes[0].Nodes.Add("E");
+            //arbreJuste.Nodes[0].Nodes[1].Nodes.Add("F");
+            //arbreJuste.Nodes[0].Nodes[1].Nodes.Add("G");
+        }
 
-            arbreJuste.Nodes[0].Nodes[1].Nodes.Add("F");
-            arbreJuste.Nodes[0].Nodes[1].Nodes.Add("G");
+        private void AjouterChildNode(TreeNodeCollection arbre, Parti02.Point O)
+        {
+            int i = 0;
+            foreach (Parti02.Point p in dij.Ferme)
+            {
+                if(p != dij.Premier)
+                {
+                    if (p.Origine == O)
+                    {
+                        
+                        //if((p!=dij.Ferme[dij.Ferme.Count()-1])&&(!p.CulDeSac))
+                        
+                        arbre.Add(p.Nom+":" + p.DistParcourue);
+                        AjouterChildNode(arbre[i].Nodes,p);
+                        i++;
+
+                    }
+                }
+                
+            }
         }
         private void btn_verif_arbre_Click(object sender, EventArgs e)
         {
@@ -163,10 +186,7 @@ namespace arbres
 
         }
 
-        private void btn_5_Click(object sender, EventArgs e)
-        {
 
-        }
 
         /* private  Dijkstra Djikstra(Point A, Point B, Point C, Point D, Point E, Point F, Point G)
         {

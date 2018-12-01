@@ -57,7 +57,6 @@ namespace Parti02
             // 1ère ligne : "nombre de noeuds du graphe
             string ligne = monStreamReader.ReadLine();
             int i = 0;
-            double[,] matrice;
             while (ligne[i] != ':') i++;
             string strnbnoeuds = "";
             i++; // On dépasse le ":"
@@ -186,6 +185,8 @@ namespace Parti02
                 // On verifie que le point n'est pas en double
                 Point pointDouble=new Point("");
                 int d = 0;
+
+
                 foreach(Point pt in Ouvert)
                 {
                     if(ptChoisi==pt)
