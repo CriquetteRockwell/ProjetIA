@@ -26,10 +26,10 @@ namespace Parti02
             Ouvert = new List<Point>();
             Ferme = new List<Point>();
             CheminPlusCourt = new List<Point>();
-            LectureTxt();
-            Nombre = Rechercher();
             ListeO = new List<string>();
             ListeF = new List<string>();
+            LectureTxt();
+            Nombre = Rechercher();
         }
 
         public void CreerPoint(string nom)
@@ -153,6 +153,10 @@ namespace Parti02
             {
                 Console.WriteLine("O = ["+Afficher(Ouvert)+"]");
                 Console.WriteLine("F = ["+Afficher(Ferme)+"]");
+
+                ListeO.Add(Afficher(Ouvert));
+                ListeF.Add(Afficher(Ferme));
+
                 Point ptChoisi=Ouvert[0];
 
                 int plusPetitChemin = ptChoisi.DistParcourue;

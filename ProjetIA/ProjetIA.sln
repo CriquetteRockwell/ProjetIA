@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PartieO1", "PartieO1\Partie
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Parti02", "Parti02\Parti02.csproj", "{8B73257F-8FCC-4CDC-B02E-988F05805DE8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "arbres", "..\..\..\arbres\arbres\arbres\arbres.csproj", "{C510807C-89C7-4F13-9653-819F7D003296}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "arbres", "arbres\arbres.csproj", "{C510807C-89C7-4F13-9653-819F7D003296}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
