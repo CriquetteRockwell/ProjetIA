@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QDijkstra));
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.Ouverts = new System.Windows.Forms.Label();
@@ -41,30 +42,32 @@
             this.lbl_verif_arbre = new System.Windows.Forms.Label();
             this.arbreJuste = new System.Windows.Forms.TreeView();
             this.lbl_verif_suivant = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // treeView1
             // 
             this.treeView1.LabelEdit = true;
-            this.treeView1.Location = new System.Drawing.Point(913, 12);
+            this.treeView1.Location = new System.Drawing.Point(442, 44);
             this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(88, 179);
+            this.treeView1.Size = new System.Drawing.Size(114, 179);
             this.treeView1.TabIndex = 0;
             // 
             // pictureBox1
             // 
-            this.pictureBox1.ImageLocation = "H:\\IA\\arbres\\arbres\\arbres\\graphe.png";
-            this.pictureBox1.Location = new System.Drawing.Point(72, 0);
+            this.pictureBox1.ImageLocation = "bin\\Debug\\graphe1.jpg";
+            this.pictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.InitialImage")));
+            this.pictureBox1.Location = new System.Drawing.Point(73, 114);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(781, 633);
+            this.pictureBox1.Size = new System.Drawing.Size(292, 499);
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
             // 
             // Ouverts
             // 
             this.Ouverts.AutoSize = true;
-            this.Ouverts.Location = new System.Drawing.Point(900, 210);
+            this.Ouverts.Location = new System.Drawing.Point(455, 242);
             this.Ouverts.Name = "Ouverts";
             this.Ouverts.Size = new System.Drawing.Size(44, 13);
             this.Ouverts.TabIndex = 6;
@@ -73,7 +76,7 @@
             // Fermes
             // 
             this.Fermes.AutoSize = true;
-            this.Fermes.Location = new System.Drawing.Point(1104, 210);
+            this.Fermes.Location = new System.Drawing.Point(659, 242);
             this.Fermes.Name = "Fermes";
             this.Fermes.Size = new System.Drawing.Size(41, 13);
             this.Fermes.TabIndex = 7;
@@ -82,7 +85,7 @@
             // checkedListBoxO
             // 
             this.checkedListBoxO.FormattingEnabled = true;
-            this.checkedListBoxO.Location = new System.Drawing.Point(903, 236);
+            this.checkedListBoxO.Location = new System.Drawing.Point(458, 268);
             this.checkedListBoxO.Name = "checkedListBoxO";
             this.checkedListBoxO.Size = new System.Drawing.Size(113, 154);
             this.checkedListBoxO.TabIndex = 12;
@@ -90,7 +93,7 @@
             // checkedListBoxF
             // 
             this.checkedListBoxF.FormattingEnabled = true;
-            this.checkedListBoxF.Location = new System.Drawing.Point(1107, 236);
+            this.checkedListBoxF.Location = new System.Drawing.Point(662, 268);
             this.checkedListBoxF.Name = "checkedListBoxF";
             this.checkedListBoxF.Size = new System.Drawing.Size(116, 154);
             this.checkedListBoxF.TabIndex = 13;
@@ -98,7 +101,7 @@
             // listBoxO
             // 
             this.listBoxO.FormattingEnabled = true;
-            this.listBoxO.Location = new System.Drawing.Point(913, 444);
+            this.listBoxO.Location = new System.Drawing.Point(468, 476);
             this.listBoxO.Name = "listBoxO";
             this.listBoxO.Size = new System.Drawing.Size(102, 147);
             this.listBoxO.TabIndex = 14;
@@ -106,14 +109,14 @@
             // listBoxF
             // 
             this.listBoxF.FormattingEnabled = true;
-            this.listBoxF.Location = new System.Drawing.Point(1107, 444);
+            this.listBoxF.Location = new System.Drawing.Point(662, 476);
             this.listBoxF.Name = "listBoxF";
             this.listBoxF.Size = new System.Drawing.Size(106, 147);
             this.listBoxF.TabIndex = 15;
             // 
             // btn_suivant
             // 
-            this.btn_suivant.Location = new System.Drawing.Point(1019, 408);
+            this.btn_suivant.Location = new System.Drawing.Point(574, 440);
             this.btn_suivant.Name = "btn_suivant";
             this.btn_suivant.Size = new System.Drawing.Size(75, 23);
             this.btn_suivant.TabIndex = 16;
@@ -123,7 +126,7 @@
             // 
             // btn_verif_arbre
             // 
-            this.btn_verif_arbre.Location = new System.Drawing.Point(843, 22);
+            this.btn_verif_arbre.Location = new System.Drawing.Point(574, 64);
             this.btn_verif_arbre.Name = "btn_verif_arbre";
             this.btn_verif_arbre.Size = new System.Drawing.Size(75, 23);
             this.btn_verif_arbre.TabIndex = 17;
@@ -134,7 +137,7 @@
             // lbl_verif_arbre
             // 
             this.lbl_verif_arbre.AutoSize = true;
-            this.lbl_verif_arbre.Location = new System.Drawing.Point(859, 79);
+            this.lbl_verif_arbre.Location = new System.Drawing.Point(589, 131);
             this.lbl_verif_arbre.Name = "lbl_verif_arbre";
             this.lbl_verif_arbre.Size = new System.Drawing.Size(35, 13);
             this.lbl_verif_arbre.TabIndex = 18;
@@ -143,25 +146,36 @@
             // arbreJuste
             // 
             this.arbreJuste.LabelEdit = true;
-            this.arbreJuste.Location = new System.Drawing.Point(1107, 22);
+            this.arbreJuste.Location = new System.Drawing.Point(662, 54);
             this.arbreJuste.Name = "arbreJuste";
-            this.arbreJuste.Size = new System.Drawing.Size(88, 169);
+            this.arbreJuste.Size = new System.Drawing.Size(128, 169);
             this.arbreJuste.TabIndex = 19;
             // 
             // lbl_verif_suivant
             // 
             this.lbl_verif_suivant.AutoSize = true;
-            this.lbl_verif_suivant.Location = new System.Drawing.Point(1034, 468);
+            this.lbl_verif_suivant.Location = new System.Drawing.Point(589, 500);
             this.lbl_verif_suivant.Name = "lbl_verif_suivant";
             this.lbl_verif_suivant.Size = new System.Drawing.Size(35, 13);
             this.lbl_verif_suivant.TabIndex = 21;
             this.lbl_verif_suivant.Text = "label2";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(198, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.TabIndex = 22;
+            this.label1.Text = "label1";
+            // 
             // QDijkstra
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1247, 635);
+            this.AutoValidate = System.Windows.Forms.AutoValidate.Disable;
+            this.ClientSize = new System.Drawing.Size(851, 635);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.lbl_verif_suivant);
             this.Controls.Add(this.arbreJuste);
             this.Controls.Add(this.lbl_verif_arbre);
@@ -199,6 +213,7 @@
         private System.Windows.Forms.Label lbl_verif_arbre;
         private System.Windows.Forms.TreeView arbreJuste;
         private System.Windows.Forms.Label lbl_verif_suivant;
+        private System.Windows.Forms.Label label1;
     }
 }
 
