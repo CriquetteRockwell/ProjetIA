@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.IO;
 namespace Parti02
 {
     class Dijkstra
@@ -14,14 +14,133 @@ namespace Parti02
         public Point Premier { get; set; }
         public Point Dernier { get; set; }
         public List<Point> CheminPlusCourt { get; set; }
-        public Dijkstra(List<Point> graphe, Point p,Point d)
+        public int Nombre { get; set; }
+        public List<string> ListeO { get; set; }
+        public List<string> ListeF { get; set; }
+
+        public Dijkstra(string nomPremier, string nomDernier)
         {
-            Graphe = graphe;
-            Premier = p;
-            Dernier = d;
+            Premier = new Parti02.Point(nomPremier);
+            Dernier = new Parti02.Point(nomDernier);
+            Graphe = new List<Point>();
             Ouvert = new List<Point>();
             Ferme = new List<Point>();
             CheminPlusCourt = new List<Point>();
+            LectureTxt();
+            Nombre = Rechercher();
+            ListeO = new List<string>();
+            ListeF = new List<string>();
+        }
+
+        public void CreerPoint(string nom)
+        {
+            Graphe.Add(new Parti02.Point(nom));
+        }
+
+        public bool EstPresent(string nom)
+        {
+            foreach(Point p in Graphe)
+            {
+                if(p.Nom == nom)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public void LectureTxt()
+        {
+            StreamReader monStreamReader = new StreamReader("graphe1.txt");
+
+            // Lecture du fichier avec un while, évidemment !
+            // 1ère ligne : "nombre de noeuds du graphe
+            string ligne = monStreamReader.ReadLine();
+            int i = 0;
+            double[,] matrice;
+            while (ligne[i] != ':') i++;
+            string strnbnoeuds = "";
+            i++; // On dépasse le ":"
+            while (ligne[i] == ' ') i++; // on saute les blancs éventuels
+            while (i < ligne.Length)
+            {
+                strnbnoeuds = strnbnoeuds + ligne[i];
+                i++;
+            }
+            
+
+            // Ensuite on a ls tructure suivante : 
+            //  arc : n°noeud départ    n°noeud arrivée  valeur
+            //  exemple 4 : 
+            ligne = monStreamReader.ReadLine();
+            while (ligne != null)
+            {
+                i = 0;
+                while (ligne[i] != ':') i++;
+                i++; // on passe le :
+                while (ligne[i] == ' ') i++; // on saute les blancs éventuels
+                string N1 = "";
+                while (ligne[i] != ' ')
+                {
+                    N1 = N1 + ligne[i];
+                    i++;
+                }
+                if(!EstPresent(N1))
+                {
+                    CreerPoint(N1);
+                }
+                // On saute les blancs éventuels
+                while (ligne[i] == ' ') i++;
+                string N2 = "";
+                while (ligne[i] != ' ')
+                {
+                    N2 = N2 + ligne[i];
+                    i++;
+                }
+                if (!EstPresent(N2))
+                {
+                    CreerPoint(N2);
+                }
+                // On saute les blancs éventuels
+                while (ligne[i] == ' ') i++;
+                string strVal = "";
+                while ((i < ligne.Length) && (ligne[i] != ' '))
+                {
+                    strVal = strVal + ligne[i];
+                    i++;
+                }
+                int val = int.Parse(strVal);
+                Point n1= new Parti02.Point("");
+                Point n2 = new Parti02.Point("");
+                foreach(Point p in Graphe)
+                {
+                    if(p.Nom==N1)
+                    {
+                        n1 = p;
+                    }
+                    else if (p.Nom == N2)
+                    {
+                        n2 = p;
+                    }
+                }
+                n1.AjouterPoint(n2,val);
+                n2.AjouterPoint(n1, val);
+                ligne = monStreamReader.ReadLine();
+            }
+            // Fermeture du StreamReader (obligatoire) 
+            monStreamReader.Close();
+            foreach (Point p in Graphe)
+            {
+                if (p.Nom == Premier.Nom)
+                {
+                    Premier = p;
+                }
+                else if (p.Nom == Dernier.Nom)
+                {
+                    Dernier = p;
+                }
+                p.EstCulDeSac();
+            }
         }
 
         public int Rechercher()
@@ -29,21 +148,6 @@ namespace Parti02
             int dist = 0;
             Ouvert.Add(Premier);
             Premier.DistParcourue = 0;
-            //Console.WriteLine("O = [" + Afficher(Ouvert) + "]");
-            //Console.WriteLine("F = [" + Afficher(Ferme) + "]");
-            //
-            //Console.WriteLine("Points fils de A : " +Afficher(Premier.PA));
-            //foreach (Point pt in Premier.PA)
-            //{
-            //    Console.WriteLine("Point fils : "+pt.Nom + "  -  Point Père : " + Premier.Nom);
-            //    Console.WriteLine("Points fils du points fils : "+Afficher(pt.PA));
-            //    pt.APourOrigine(Premier);
-            //    Ouvert.Add(pt);
-            //}
-            //FermerPoint(Premier);
-            //CheminPlusCourt.Add(Premier);
-
-            //Ajouter points suivant dans ouverts
 
             while (!EstPresentDansListe(Dernier,Ferme))
             {
@@ -75,29 +179,49 @@ namespace Parti02
                 }
                 
                 FermerPoint(ptChoisi);
+                // On verifie que le point n'est pas en double
+                Point pointDouble=new Point("");
+                int d = 0;
+                foreach(Point pt in Ouvert)
+                {
+                    if(ptChoisi==pt)
+                    {
+                        pointDouble = pt;
+                        d++;
+                    }
+                }
+                if(pointDouble.Nom!="")
+                {
+                    for (int k = 0; k < d; k++)
+                    {
+                        Ouvert.Remove(pointDouble);
+                    }
+                }
+                
                 CheminPlusCourt.Add(ptChoisi);
-                Console.WriteLine("===>Point choisi : "+ptChoisi.Nom+" ---- Points fils :  " + Afficher(ptChoisi.PA) );
+                //Console.WriteLine("===>Point choisi : "+ptChoisi.Nom+" ---- Points fils :  " + Afficher(ptChoisi.PA) );
                 //On compare les points fermés et des points fils de ptChoisi pour les retirer des possibilités.
-                //Faire une fonction qui tej de PA les points déjà dans Fermé.
 
                 foreach (Point pt in ptChoisi.PA)
                 {
                     
                     
-                    Console.WriteLine("Point fils : " + pt.Nom);
+                   // Console.WriteLine("Point fils : " + pt.Nom);
                     pt.APourOrigine(ptChoisi);
                     Ouvert.Add(pt);
-                    Console.WriteLine("Point Père : " + pt.Origine.Nom + " -- Distance : " + pt.DistParcourue);
-                    Console.WriteLine("Points fils du points fils : " + Afficher(pt.PA));
+
+                    //Console.WriteLine("Point Père : " + pt.Origine.Nom + " -- Distance : " + pt.DistParcourue);
+                    //Console.WriteLine("Points fils du points fils : " + Afficher(pt.PA));
                     
                 }
-                
+                dist++;   
             }
             Console.WriteLine("O = [" + Afficher(Ouvert) + "]");
             Console.WriteLine("F = [" + Afficher(Ferme) + "]");
             Console.WriteLine("Chemin le plus court : " + Afficher(CheminPlusCourt));
             return dist;
         }
+
         public void RetirerFerme(Point pt)
         {
             foreach(Point ptf in Ferme)
@@ -111,11 +235,13 @@ namespace Parti02
                 }
             }
         }
+
         public void FermerPoint(Point pt)
         {
             Ferme.Add(pt);
             Ouvert.Remove(pt);
         }
+
         public bool EstPresentDansListe(Point P, List<Point> Points)
         {
             bool test = false;
@@ -126,14 +252,26 @@ namespace Parti02
             }
             return test;
         }
+
         public string Afficher (List<Point> lp)
         {
             string affichage = "";
-            for(int i =0;i<lp.Count();i++)
+            lp.Sort(Point.CompareNom);
+            List<Point> doublons = new List<Point>();
+            for (int i = 0; i < lp.Count(); i++)
             {
-                affichage += lp[i].Nom + " ";
+                if (i != lp.Count() - 1 && lp[i] == lp[i + 1]) { doublons.Add(lp[i]); }
+            }
+            foreach (Point p in doublons)
+            {
+                lp.Remove(p);
+            }
+            for (int i = 0; i < lp.Count(); i++)
+            {
+                affichage += lp[i].Nom;
             }
             return affichage;
+
         }
     }
 }

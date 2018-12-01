@@ -20,6 +20,8 @@ namespace Parti02
             Nom = n;
             DistParcourue = 0;
             CulDeSac = false;
+            PA = new List<Point>();
+            DistPA = new List<int>();
         }
 
         public void AjouterPA(List<Point> pa, List<int> dpa)
@@ -60,6 +62,20 @@ namespace Parti02
             }
         }
 
+        public void AfficherPointsAdjacents()
+        {
+            string affichage = "Liens de "+Nom+": \n";
+            foreach (Point pt in PA)
+            {
+                affichage += pt.Nom;
+            }
+            Console.WriteLine(affichage);
+        }
+
+        public static int CompareNom(Point p1, Point p2)
+        {
+            return p1.Nom.CompareTo(p2.Nom);
+        }
     }
     //Il faudra retirer les point fermés
     //public void PointPlusProche()
