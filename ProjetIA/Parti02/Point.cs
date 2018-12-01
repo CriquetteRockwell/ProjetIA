@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Parti02
 {
-    class Point
+    public class Point
     {
         //Pb : Il faut pouvoir créer les points sans avoir besoin d'autres points. A tester next time
         public string Nom { get; set; }

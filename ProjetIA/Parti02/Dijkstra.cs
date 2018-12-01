@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.IO;
 namespace Parti02
 {
-    class Dijkstra
+    public class Dijkstra
     {
         public List<Point> Graphe { get; set; }
         public List<Point> Ouvert { get; set; }
