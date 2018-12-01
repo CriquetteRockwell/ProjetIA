@@ -143,5 +143,6 @@ namespace PartieO1
             reponses.Add(Acces.retournerReponse(numQ, 1, "questions.xml")); reponses.Add(Acces.retournerReponse(numQ, 2, "questions.xml")); reponses.Add(Acces.retournerReponse(numQ, 3, "questions.xml")); reponses.Add(Acces.retournerReponse(numQ, 4, "questions.xml"));
             Questions.Add(new TestFrage(Acces.retournerQuestion(numQ, "questions.xml"), reponses, Acces.retournerReponseJusteInt(numQ, "questions.xml"), Acces.retournerPoids(numQ, "questions.xml"),Acces.Image(numQ,"questions.xml")));
         }
+
     }
 }

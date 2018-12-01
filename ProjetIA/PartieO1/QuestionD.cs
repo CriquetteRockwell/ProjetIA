@@ -180,5 +180,6 @@ namespace PartieO1
         {
             ActiveForm.Close();
         }
+        
     }
 }

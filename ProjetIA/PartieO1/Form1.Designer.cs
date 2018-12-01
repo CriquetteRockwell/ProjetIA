@@ -29,9 +29,13 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.Button buttonStart;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(qcm));
             this.BigTitle = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.homeBttn = new System.Windows.Forms.Button();
             this.scoreLabel = new System.Windows.Forms.Label();
             this.finLabel = new System.Windows.Forms.Label();
@@ -43,32 +47,33 @@
             this.rbB = new System.Windows.Forms.RadioButton();
             this.rbA = new System.Windows.Forms.RadioButton();
             this.questionLabel = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             buttonStart = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonStart
             // 
-            buttonStart.Location = new System.Drawing.Point(121, 347);
+            buttonStart.Location = new System.Drawing.Point(187, 507);
             buttonStart.Name = "buttonStart";
             buttonStart.Size = new System.Drawing.Size(141, 33);
             buttonStart.TabIndex = 1;
-            buttonStart.Text = "Get me started";
+            buttonStart.Text = "COMMENCER ";
             buttonStart.UseVisualStyleBackColor = true;
             buttonStart.Click += new System.EventHandler(this.ButtonStart_Click);
             // 
             // BigTitle
             // 
-            this.BigTitle.AutoSize = true;
             this.BigTitle.BackColor = System.Drawing.SystemColors.Control;
             this.BigTitle.Font = new System.Drawing.Font("Poor Richard", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BigTitle.Location = new System.Drawing.Point(49, 134);
+            this.BigTitle.Location = new System.Drawing.Point(109, 125);
             this.BigTitle.Name = "BigTitle";
-            this.BigTitle.Size = new System.Drawing.Size(290, 33);
+            this.BigTitle.Size = new System.Drawing.Size(362, 192);
             this.BigTitle.TabIndex = 0;
-            this.BigTitle.Text = "LE QCM DE SES MORTS";
+            this.BigTitle.Text = "Testez vos connaissances en Intelligence Artificielle  !";
             // 
             // panel1
             // 
@@ -81,24 +86,52 @@
             this.panel1.Controls.Add(this.rbB);
             this.panel1.Controls.Add(this.rbA);
             this.panel1.Controls.Add(this.questionLabel);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Location = new System.Drawing.Point(1, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1221, 703);
+            this.panel1.Size = new System.Drawing.Size(527, 703);
             this.panel1.TabIndex = 2;
             this.panel1.Visible = false;
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.button1);
+            this.panel2.Controls.Add(this.label1);
+            this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.homeBttn);
             this.panel2.Controls.Add(this.scoreLabel);
             this.panel2.Controls.Add(this.finLabel);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1221, 703);
+            this.panel2.Size = new System.Drawing.Size(527, 703);
             this.panel2.TabIndex = 11;
             this.panel2.Visible = false;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(226, 393);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "Accueil";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(256, 349);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(30, 13);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "0/20";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(238, 287);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(63, 13);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Fin du QCM";
             // 
             // homeBttn
             // 
@@ -131,15 +164,15 @@
             // pictureBox1
             // 
             this.pictureBox1.ImageLocation = "H:\\IA\\Projet\\ProjetIA\\ProjetIA\\PartieO1\\images\\seeulater.jpeg";
-            this.pictureBox1.Location = new System.Drawing.Point(433, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(21, 450);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(594, 630);
+            this.pictureBox1.Size = new System.Drawing.Size(476, 241);
             this.pictureBox1.TabIndex = 12;
             this.pictureBox1.TabStop = false;
             // 
             // nextBttn
             // 
-            this.nextBttn.Location = new System.Drawing.Point(137, 574);
+            this.nextBttn.Location = new System.Drawing.Point(374, 409);
             this.nextBttn.Name = "nextBttn";
             this.nextBttn.Size = new System.Drawing.Size(75, 23);
             this.nextBttn.TabIndex = 10;
@@ -150,7 +183,7 @@
             // numQuestion
             // 
             this.numQuestion.AutoSize = true;
-            this.numQuestion.Location = new System.Drawing.Point(163, 49);
+            this.numQuestion.Location = new System.Drawing.Point(245, 46);
             this.numQuestion.Name = "numQuestion";
             this.numQuestion.Size = new System.Drawing.Size(30, 13);
             this.numQuestion.TabIndex = 9;
@@ -158,7 +191,7 @@
             // 
             // rbD
             // 
-            this.rbD.Location = new System.Drawing.Point(121, 449);
+            this.rbD.Location = new System.Drawing.Point(121, 357);
             this.rbD.Name = "rbD";
             this.rbD.Size = new System.Drawing.Size(200, 75);
             this.rbD.TabIndex = 8;
@@ -168,7 +201,7 @@
             // 
             // rbC
             // 
-            this.rbC.Location = new System.Drawing.Point(121, 347);
+            this.rbC.Location = new System.Drawing.Point(121, 282);
             this.rbC.Name = "rbC";
             this.rbC.Size = new System.Drawing.Size(200, 75);
             this.rbC.TabIndex = 7;
@@ -178,7 +211,7 @@
             // 
             // rbB
             // 
-            this.rbB.Location = new System.Drawing.Point(121, 251);
+            this.rbB.Location = new System.Drawing.Point(121, 210);
             this.rbB.Name = "rbB";
             this.rbB.Size = new System.Drawing.Size(200, 75);
             this.rbB.TabIndex = 6;
@@ -188,7 +221,7 @@
             // 
             // rbA
             // 
-            this.rbA.Location = new System.Drawing.Point(121, 170);
+            this.rbA.Location = new System.Drawing.Point(121, 143);
             this.rbA.Name = "rbA";
             this.rbA.Size = new System.Drawing.Size(200, 75);
             this.rbA.TabIndex = 5;
@@ -198,18 +231,29 @@
             // 
             // questionLabel
             // 
-            this.questionLabel.Location = new System.Drawing.Point(75, 80);
+            this.questionLabel.Location = new System.Drawing.Point(98, 81);
             this.questionLabel.Name = "questionLabel";
             this.questionLabel.Size = new System.Drawing.Size(500, 70);
             this.questionLabel.TabIndex = 0;
             this.questionLabel.Text = "Mais que voilà si ce n\'est la question suivanteqfq\r\nretezte\r\nzerrtze\r\n\r\nrsdg";
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(57, 195);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(400, 260);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 3;
+            this.pictureBox2.TabStop = false;
+            // 
             // qcm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1221, 703);
+            this.ClientSize = new System.Drawing.Size(526, 703);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pictureBox2);
             this.Controls.Add(buttonStart);
             this.Controls.Add(this.BigTitle);
             this.Name = "qcm";
@@ -219,8 +263,8 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -236,10 +280,14 @@
         private System.Windows.Forms.Label questionLabel;
         private System.Windows.Forms.Button nextBttn;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button homeBttn;
         private System.Windows.Forms.Label scoreLabel;
         private System.Windows.Forms.Label finLabel;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }
 
